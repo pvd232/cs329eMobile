@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    	
     @IBOutlet weak var hometownLabel: UILabel!
     func align () {
         hometownLabel.textAlignment = .center
