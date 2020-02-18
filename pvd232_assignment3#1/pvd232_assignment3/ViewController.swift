@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Mark Properties
     @IBOutlet weak var nameHometownLabel: UILabel!
-    @IBOutlet weak var nameLabel: UIStackView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
