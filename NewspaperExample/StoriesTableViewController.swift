@@ -17,6 +17,14 @@ struct Headline {
     
 }
 
+class HeadlineTableViewCell: UITableViewCell {
+
+ 
+    @IBOutlet weak var headlineTitleLabel: UILabel!
+    @IBOutlet weak var headlineTextLabel: UILabel!
+    @IBOutlet weak var headlineImageView: UIImageView!
+}
+
 class StoriesTableViewController: UITableViewController {
     
     var headlines = [
@@ -25,37 +33,20 @@ class StoriesTableViewController: UITableViewController {
         Headline(id: 3, title: "In ac ante sapien", text: "Aliquam egestas ultricies dapibus. Nam molestie nunc.", image: "Cantaloupe"),
     ]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return headlines.count
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! HeadlineTableViewCell
         
-        cell.textLabel?.text = headlines[indexPath.row].title
-        
+        let headline = headlines[indexPath.row]
+        cell.headlineTitleLabel?.text = headline.title
+        cell.headlineTextLabel?.text = headline.text
+        cell.headlineImageView?.image = UIImage(named : headline.image)
         return cell
     }
     

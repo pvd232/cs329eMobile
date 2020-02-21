@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wpv-cr-yY2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wpv-cr-yY2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,29 +14,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="xJW-73-FTI" detailTextLabel="qBi-au-uSA" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="uWb-W7-N4p">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="60" id="uWb-W7-N4p" customClass="HeadlineTableViewCell" customModule="NewspaperExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uWb-W7-N4p" id="aHZ-nj-NcE">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJW-73-FTI">
-                                            <rect key="frame" x="20" y="10" width="39.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-pb-Ebs">
+                                            <rect key="frame" x="264" y="0.0" width="150" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="QIT-4X-Ezd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6x-Bw-pWo">
+                                            <rect key="frame" x="0.0" y="0.0" width="126" height="21"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crR-HD-rGi">
+                                            <rect key="frame" x="0.0" y="21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qBi-au-uSA">
-                                            <rect key="frame" x="20" y="33.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="R6x-Bw-pWo" firstAttribute="top" secondItem="aHZ-nj-NcE" secondAttribute="top" id="3s2-IF-6Kb"/>
+                                        <constraint firstItem="crR-HD-rGi" firstAttribute="top" secondItem="R6x-Bw-pWo" secondAttribute="bottom" id="40N-ML-5IA"/>
+                                        <constraint firstItem="pH1-pb-Ebs" firstAttribute="leading" secondItem="R6x-Bw-pWo" secondAttribute="trailing" constant="138" id="6BI-j2-lB4"/>
+                                        <constraint firstItem="pH1-pb-Ebs" firstAttribute="top" secondItem="aHZ-nj-NcE" secondAttribute="top" id="79X-KC-P0a"/>
+                                        <constraint firstItem="crR-HD-rGi" firstAttribute="leading" secondItem="aHZ-nj-NcE" secondAttribute="leading" id="8ru-cS-HEB"/>
+                                        <constraint firstItem="R6x-Bw-pWo" firstAttribute="top" secondItem="aHZ-nj-NcE" secondAttribute="top" id="Ffg-NL-jas"/>
+                                        <constraint firstAttribute="trailing" secondItem="pH1-pb-Ebs" secondAttribute="trailing" id="IWj-58-aVD"/>
+                                        <constraint firstAttribute="bottom" secondItem="pH1-pb-Ebs" secondAttribute="bottom" id="ber-mH-zu3"/>
+                                        <constraint firstItem="R6x-Bw-pWo" firstAttribute="leading" secondItem="aHZ-nj-NcE" secondAttribute="leading" id="xeR-ut-tn1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headlineImageView" destination="pH1-pb-Ebs" id="P10-UE-3Yf"/>
+                                    <outlet property="headlineTextLabel" destination="crR-HD-rGi" id="rIe-o5-LAi"/>
+                                    <outlet property="headlineTitleLabel" destination="R6x-Bw-pWo" id="qFB-yo-Kgc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -48,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xF1-pe-yBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="126"/>
+            <point key="canvasLocation" x="-100.00000000000001" y="125.89285714285714"/>
         </scene>
     </scenes>
 </document>
