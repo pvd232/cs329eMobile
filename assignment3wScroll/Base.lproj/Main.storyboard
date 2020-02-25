@@ -152,7 +152,7 @@
                         <outlet property="austinImage" destination="fi1-PK-VGd" id="3ja-KT-d5a"/>
                         <outlet property="cityLabel" destination="Ctg-ke-Ntd" id="imB-u5-EnV"/>
                         <outlet property="cityTextField" destination="iCA-ft-Fsx" id="c7d-c3-8IH"/>
-                        <outlet property="mainTextView" destination="Y3v-b5-4ok" id="fc6-jW-lyC"/>
+                        <outlet property="mainTextView" destination="Y3v-b5-4ok" id="G20-cF-pD6"/>
                         <outlet property="nameLabel" destination="Oex-Ox-Els" id="LZU-cv-Ael"/>
                         <outlet property="nameTextField" destination="YlB-rP-Q3m" id="uAf-Ju-YNU"/>
                         <outlet property="saveButton" destination="fPF-Hh-ykU" id="fBy-5B-fiv"/>

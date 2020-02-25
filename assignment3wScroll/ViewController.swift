@@ -27,7 +27,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         cityTextField.delegate = self
         nameTextField.returnKeyType = UIReturnKeyType.done
         cityTextField.returnKeyType = UIReturnKeyType.done
-        mainTextView.delegate = self
     }
 
     //Mark: UITextFieldDelegate
@@ -44,10 +43,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         if nameTextField.text != "" && cityTextField.text != "" {
             let userInputName = nameTextField.text!
             let userInputCity = cityTextField.text!
-            userInfo.append("Name: " + userInputName + ", " + "City: " + userInputCity)
-            mainTextView.text += userInfo[userInfo.count - 1]
-            mainTextView.text += "\n"
-            
+            userInfo.append("Name: " + userInputName + ", City: " + userInputCity + "\n")
+            mainTextView.text = ""
+            for info in userInfo {
+                mainTextView.text += info
+            }
         }
         nameTextField.text = ""
         cityTextField.text = ""
