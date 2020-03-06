@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>tuatara4</key>
+		<string>Suns out, tongues out!</string>
+	</dict>
+	<dict>
+		<key>tuatara3</key>
+		<string>Looking very regal!</string>
+	</dict>
+	<dict>
+		<key>tuatara2</key>
+		<string>Hanging out on a log.</string>
+	</dict>
+	<dict>
+		<key>polarBear4</key>
+		<string>Peeking out!</string>
+	</dict>
+	<dict>
+		<key>polarBear3</key>
+		<string>Pretty bear, pretty sunset.</string>
+	</dict>
+	<dict>
+		<key>polarBear2</key>
+		<string>Mama bear protecting her kids!</string>
+	</dict>
+	<dict>
+		<key>greenlandShark4</key>
+		<string>Lone shark deep in the sea.</string>
+	</dict>
+	<dict>
+		<key>greenlandShark3</key>
+		<string>Head shot!</string>
+	</dict>
+	<dict>
+		<key>greenlandShark2</key>
+		<string>Very menacing.</string>
+	</dict>
+	<dict>
+		<key>giraffe4</key>
+		<string>Fun with friends!</string>
+	</dict>
+	<dict>
+		<key>giraffe3</key>
+		<string>Close up!</string>
+	</dict>
+	<dict>
+		<key>giraffe2</key>
+		<string>Look at its long neck!</string>
+	</dict>
+</array>
+</plist>

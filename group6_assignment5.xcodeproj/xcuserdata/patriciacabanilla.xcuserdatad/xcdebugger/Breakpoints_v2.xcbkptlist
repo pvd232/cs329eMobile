@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B43D551B-C886-45E8-B5D4-C684AEFFC82C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9ED3836-F732-420F-901C-C8FA23163C22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "group6_assignment5/AnimalCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "AnimalCollectionViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - 570f41cec7e37205"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.items.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - a22922f2bf20fe71"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.items.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - abe22bf6b81e1f00"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.items.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - 7eb1dc04c22ed46f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.items.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - e44aafa31e628b9"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; group6_assignment5.AnimalCollectionViewController"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "259">
+               </Location>
+               <Location
+                  uuid = "D9ED3836-F732-420F-901C-C8FA23163C22 - 99e72c52259bdc4f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "group6_assignment5.AnimalCollectionViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;group6_assignment5.AnimalCollectionViewController&gt;"
+                  moduleName = "group6_assignment5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patriciacabanilla/Documents/UT/Mobile%20Computing/Assignments/group6_assignment5/group6_assignment5/AnimalCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "185">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "200B62BF-F517-4A7D-BC11-A21DB8A4ABB6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "group6_assignment5/AnimalCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4"
+            endingLineNumber = "4"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B760C241-D5C0-44E3-9274-F7E09D234929"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "group6_assignment5/AnimalCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
