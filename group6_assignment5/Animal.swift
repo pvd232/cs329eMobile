@@ -17,39 +17,23 @@ class Animal
     public var image:String
     
     public var name:String {
-        get {
-            return _name
-        }
-        set (newName) {
-            self._name = newName
-        }
+        get { return _name }
+        set (newName) { self._name = newName }
     }
     
     public var scientificName:String {
-        get {
-            return _scientificName
-        }
-        set (newScientificName) {
-            self._scientificName = newScientificName
-        }
+        get { return _scientificName }
+        set (newScientificName) { self._scientificName = newScientificName }
     }
     
     public var animalClass:String {
-        get {
-            return _animalClass
-        }
-        set (newAnimalClass) {
-            self._animalClass = newAnimalClass
-        }
+        get { return _animalClass }
+        set (newAnimalClass) { self._animalClass = newAnimalClass }
     }
     
     public var size:String {
-        get {
-            return _size
-        }
-        set (newSize) {
-            self._size = newSize
-        }
+        get { return _size }
+        set (newSize) { self._size = newSize }
     }
     
     init (name:String, scientificName:String, animalClass:String, size:String, image:String){

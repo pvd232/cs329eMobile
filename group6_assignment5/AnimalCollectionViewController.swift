@@ -29,19 +29,18 @@ class GalleryItem {
     }
 }
 
-class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource,
-UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var AnimalCollectionView: UICollectionView!
     
     var animalPictures = [GalleryItem]()
     
     /* String identifier used to dynamically load cells into collection */
-    private let identifier = "AnimalCollectionCell"
+    let identifier = "AnimalCollectionCell"
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         accessPhotoPlist()
+        super.viewDidLoad()
      }
     
     override func didReceiveMemoryWarning() {
@@ -59,19 +58,20 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
         }
     }
         
-    /*func numberOfSections(in collectionView: UICollectionView) -> Int {
-      return searches.count
-    }*/
+    // MARK: UICollectionViewDataSource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return animalPictures.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnimalCollectionCell", for: indexPath) as! AnimalPhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! AnimalPhotoCollectionViewCell
         
         let animalPhoto = animalPictures[indexPath.row]
-        cell.backgroundColor = .black
         cell.animalImageView?.image = UIImage(named: animalPhoto.image)
         cell.captionLabel.text = animalPhoto.caption
         
@@ -80,10 +80,10 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     //MARK: UICollectionViewFlowLayout
     
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: 100, height: 100)
-    }*/
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)

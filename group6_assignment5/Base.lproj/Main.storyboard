@@ -200,6 +200,7 @@
                                                 <constraint firstItem="vVx-H8-tXK" firstAttribute="top" secondItem="DuG-Hz-wCW" secondAttribute="top" constant="8" id="kbm-ek-seQ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.88515357120000004" green="0.88515357120000004" blue="0.88515357120000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
                                             <outlet property="animalImageView" destination="v7y-bN-Uy2" id="iPn-jP-l9V"/>
@@ -207,6 +208,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="lby-0z-hsD" id="Gcy-pc-a8x"/>
+                                    <outlet property="delegate" destination="lby-0z-hsD" id="m7g-25-Ziv"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,6 +233,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m1c-7j-US4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="2Eb-oe-I7n" kind="relationship" relationship="rootViewController" id="hBJ-a3-6bz"/>
