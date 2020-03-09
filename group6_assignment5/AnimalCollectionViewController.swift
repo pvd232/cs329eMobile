@@ -29,7 +29,7 @@ class GalleryItem {
     }
 }
 
-class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var AnimalCollectionView: UICollectionView!
     
@@ -37,8 +37,7 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
     
     /* String identifier used to dynamically load cells into collection */
     let identifier = "AnimalCollectionCell"
-    
-     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let sectionInsets = UIEdgeInsets(top: 0.0, left: 50.0, bottom: 0.0, right: 50.0)
 
     override func viewDidLoad() {
         accessPhotoPlist()
@@ -80,49 +79,62 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
         return cell
     }
 
-    //MARK: UICollectionViewFlowLayout
+    func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+      // 1
+      switch kind {
+      // 2
+      case UICollectionView.elementKindSectionHeader:
+        // 3
+        guard
+          let headerView = collectionView.dequeueReusableSupplementaryView( ofKind: kind,
+                                                                            withReuseIdentifier: "HeaderView",
+                                                                            for: indexPath) as? CollectionHeaderView
+          else {
+            fatalError("Invalid view type") }
+
+        return headerView
+
+      case UICollectionView.elementKindSectionFooter:
+        guard
+            let footerView = collectionView.dequeueReusableSupplementaryView( ofKind: kind,
+                                                                              withReuseIdentifier: "FooterView",
+                                                                              for: indexPath) as? CollectionFooterView
+            else {
+              fatalError("Invalid view type") }
+
+          return footerView
+      default:
+        assert(false, "Invalid element type")
+        }
+    }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: 100, height: 100)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
-//    }
-
-}
-// MARK: - UICollection View Flow Layout Delegate
-
-
-
-extension AnimalCollectionViewController : UICollectionViewDelegateFlowLayout {
-  //1
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //2
-    let itemsPerRow: CGFloat = 1
-    let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-    let availableWidth = view.frame.width - paddingSpace
-    let widthPerItem = availableWidth / itemsPerRow
+    // MARK: - UICollection View Flow Layout Delegate
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+      //2
+        let itemsPerRow: CGFloat = 1
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+      
+        return CGSize(width: 100, height: 100)
+    }
     
-    return CGSize(width: widthPerItem, height: widthPerItem)
-  }
-  
-  //3
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      insetForSectionAt section: Int) -> UIEdgeInsets {
-    return sectionInsets
-  }
-  
-  // 4
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return sectionInsets.left
-  }
+    //3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+      return sectionInsets
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+      return sectionInsets.left
+    }
 }
-
 

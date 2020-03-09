@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111693652415E5CB00474344 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111693642415E5CB00474344 /* CollectionHeaderView.swift */; };
+		111693672415EA0500474344 /* CollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111693662415EA0500474344 /* CollectionFooterView.swift */; };
 		11CBFA2F240C5D49006462D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CBFA2E240C5D49006462D1 /* AppDelegate.swift */; };
 		11CBFA31240C5D49006462D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CBFA30240C5D49006462D1 /* SceneDelegate.swift */; };
 		11CBFA36240C5D49006462D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFA34240C5D49006462D1 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111693642415E5CB00474344 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		111693662415EA0500474344 /* CollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFooterView.swift; sourceTree = "<group>"; };
 		11CBFA2B240C5D49006462D1 /* group6_assignment5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = group6_assignment5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CBFA2E240C5D49006462D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CBFA30240C5D49006462D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,11 +68,13 @@
 		11CBFA2D240C5D49006462D1 /* group6_assignment5 */ = {
 			isa = PBXGroup;
 			children = (
+				111693642415E5CB00474344 /* CollectionHeaderView.swift */,
 				11CBFA2E240C5D49006462D1 /* AppDelegate.swift */,
 				11CBFA30240C5D49006462D1 /* SceneDelegate.swift */,
 				11CBFA34240C5D49006462D1 /* Main.storyboard */,
 				11D3B1AC24109EEF004CF80A /* AnimalPhotoCollectionViewCell.swift */,
 				11D3B1AA24108E1C004CF80A /* AnimalCollectionViewController.swift */,
+				111693662415EA0500474344 /* CollectionFooterView.swift */,
 				11D3B1A824108B92004CF80A /* Photo Plist.plist */,
 				11CBFA44240C6536006462D1 /* AnimalTableViewController.swift */,
 				11CBFA42240C6092006462D1 /* Animal.swift */,
@@ -154,7 +160,9 @@
 				11CBFA2F240C5D49006462D1 /* AppDelegate.swift in Sources */,
 				11D3B1AD24109EEF004CF80A /* AnimalPhotoCollectionViewCell.swift in Sources */,
 				11CBFA31240C5D49006462D1 /* SceneDelegate.swift in Sources */,
+				111693672415EA0500474344 /* CollectionFooterView.swift in Sources */,
 				11D3B1AB24108E1C004CF80A /* AnimalCollectionViewController.swift in Sources */,
+				111693652415E5CB00474344 /* CollectionHeaderView.swift in Sources */,
 				11CBFA43240C6092006462D1 /* Animal.swift in Sources */,
 				11CBFA45240C6536006462D1 /* AnimalTableViewController.swift in Sources */,
 			);

@@ -73,13 +73,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAo-fO-aqo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAo-fO-aqo">
                                                     <rect key="frame" x="0.0" y="28.333333333333336" width="209.33333333333334" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzT-l3-Jvo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzT-l3-Jvo">
                                                     <rect key="frame" x="0.0" y="56.666666666666679" width="209.33333333333334" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -167,15 +167,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Jj1-5m-5cE">
                                     <size key="itemSize" width="0.0" height="0.0"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="50" height="31"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnimalCollectionCell" id="axA-rS-sj8" customClass="AnimalPhotoCollectionViewCell" customModule="group6_assignment5" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="50" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DuG-Hz-wCW">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SEC-gd-G94">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -200,8 +200,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Lkk-Qw-uDW" firstAttribute="top" secondItem="DuG-Hz-wCW" secondAttribute="top" id="Yny-TK-aHD"/>
-                                                <constraint firstItem="Lkk-Qw-uDW" firstAttribute="centerX" secondItem="DuG-Hz-wCW" secondAttribute="centerX" id="dPc-vn-KcH"/>
+                                                <constraint firstItem="Lkk-Qw-uDW" firstAttribute="top" secondItem="SEC-gd-G94" secondAttribute="top" id="Yny-TK-aHD"/>
+                                                <constraint firstItem="Lkk-Qw-uDW" firstAttribute="centerX" secondItem="SEC-gd-G94" secondAttribute="centerX" id="dPc-vn-KcH"/>
                                                 <constraint firstAttribute="bottom" secondItem="Lkk-Qw-uDW" secondAttribute="bottom" constant="16" id="eSz-vc-QHQ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -213,6 +213,50 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderView" id="U7t-fK-6so" customClass="CollectionHeaderView" customModule="group6_assignment5" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Animals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-oV-adS">
+                                            <rect key="frame" x="122.99999999999999" y="8" width="168.66666666666663" height="33.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.514417378241534" green="0.514417378241534" blue="0.514417378241534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="v1V-oV-adS" firstAttribute="top" secondItem="U7t-fK-6so" secondAttribute="top" constant="8" id="36r-Dl-9hX"/>
+                                        <constraint firstAttribute="bottom" secondItem="v1V-oV-adS" secondAttribute="bottom" constant="8.3333333333333357" id="Jxt-eq-WlG"/>
+                                        <constraint firstItem="v1V-oV-adS" firstAttribute="leading" secondItem="U7t-fK-6so" secondAttribute="leading" constant="123" id="ebE-qa-vPn"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v1V-oV-adS" secondAttribute="trailing" constant="122" id="ouR-Yd-5TL"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="HeaderLabel" destination="v1V-oV-adS" id="Euh-Vp-xgi"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FooterView" id="ZUg-2f-UEd" customClass="CollectionFooterView" customModule="group6_assignment5" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="250" width="414" height="31"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My favorite animals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-EX-AnE">
+                                            <rect key="frame" x="258" y="5" width="147.66666666666663" height="20.333333333333332"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="7YG-EX-AnE" firstAttribute="top" secondItem="ZUg-2f-UEd" secondAttribute="top" constant="5" id="6cN-NI-ZLL"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7YG-EX-AnE" secondAttribute="trailing" constant="8" id="YbM-cW-nd5"/>
+                                        <constraint firstItem="7YG-EX-AnE" firstAttribute="leading" secondItem="ZUg-2f-UEd" secondAttribute="leading" constant="258" id="s6O-Z6-sqe"/>
+                                        <constraint firstAttribute="bottom" secondItem="7YG-EX-AnE" secondAttribute="bottom" constant="5.6666666666666679" id="sJq-LJ-E49"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="FooterView" destination="7YG-EX-AnE" id="3mz-OW-i85"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="lby-0z-hsD" id="Gcy-pc-a8x"/>
                                     <outlet property="delegate" destination="lby-0z-hsD" id="m7g-25-Ziv"/>
@@ -236,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8d-Ib-dL9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.5546875" y="-2.6354319180087846"/>
+            <point key="canvasLocation" x="368.11594202898556" y="-2.6785714285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kFA-ng-oV2">
