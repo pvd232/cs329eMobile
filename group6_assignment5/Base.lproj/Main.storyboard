@@ -101,8 +101,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-9d-bzp">
-                                                    <rect key="frame" x="78.333333333333329" y="29" width="46.333333333333329" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-9d-bzp">
+                                                    <rect key="frame" x="75" y="29" width="49.666666666666657" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -115,11 +115,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xzf-9d-bzp" secondAttribute="trailing" id="3Ee-xO-iat"/>
                                                 <constraint firstAttribute="bottom" secondItem="xzf-9d-bzp" secondAttribute="bottom" constant="28.333333333333343" id="8eb-0r-cR5"/>
                                                 <constraint firstAttribute="width" constant="124.5" id="JAO-UR-daU"/>
                                                 <constraint firstItem="xzf-9d-bzp" firstAttribute="top" secondItem="i9d-3W-lvg" secondAttribute="top" constant="29" id="d3b-KA-UvZ"/>
                                                 <constraint firstItem="7kx-gy-2H0" firstAttribute="leading" secondItem="i9d-3W-lvg" secondAttribute="leading" constant="66" id="ecY-Yy-tcL"/>
-                                                <constraint firstItem="xzf-9d-bzp" firstAttribute="leading" secondItem="i9d-3W-lvg" secondAttribute="leading" constant="78.333333333333329" id="va9-9G-MMW"/>
+                                                <constraint firstItem="xzf-9d-bzp" firstAttribute="leading" secondItem="i9d-3W-lvg" secondAttribute="leading" constant="75" id="va9-9G-MMW"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -165,7 +166,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3VU-pi-FYs">
                                 <rect key="frame" x="0.0" y="38" width="414" height="824"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Jj1-5m-5cE">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Jj1-5m-5cE">
                                     <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="50" height="31"/>
@@ -175,11 +176,10 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnimalCollectionCell" id="axA-rS-sj8" customClass="AnimalPhotoCollectionViewCell" customModule="group6_assignment5" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SEC-gd-G94">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-gd-G94">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lkk-Qw-uDW">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lkk-Qw-uDW">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="184"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVx-H8-tXK">
@@ -188,7 +188,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v7y-bN-Uy2">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7y-bN-Uy2">
                                                             <rect key="frame" x="0.0" y="18" width="200" height="166"/>
                                                         </imageView>
                                                     </subviews>
@@ -218,7 +218,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Animals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-oV-adS">
-                                            <rect key="frame" x="122.99999999999999" y="8" width="168.66666666666663" height="33.666666666666664"/>
+                                            <rect key="frame" x="123" y="8" width="169" height="33.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -229,7 +229,7 @@
                                         <constraint firstItem="v1V-oV-adS" firstAttribute="top" secondItem="U7t-fK-6so" secondAttribute="top" constant="8" id="36r-Dl-9hX"/>
                                         <constraint firstAttribute="bottom" secondItem="v1V-oV-adS" secondAttribute="bottom" constant="8.3333333333333357" id="Jxt-eq-WlG"/>
                                         <constraint firstItem="v1V-oV-adS" firstAttribute="leading" secondItem="U7t-fK-6so" secondAttribute="leading" constant="123" id="ebE-qa-vPn"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v1V-oV-adS" secondAttribute="trailing" constant="122" id="ouR-Yd-5TL"/>
+                                        <constraint firstAttribute="trailing" secondItem="v1V-oV-adS" secondAttribute="trailing" constant="122" id="ouR-Yd-5TL"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="HeaderLabel" destination="v1V-oV-adS" id="Euh-Vp-xgi"/>
@@ -239,8 +239,8 @@
                                     <rect key="frame" x="0.0" y="250" width="414" height="31"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My favorite animals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-EX-AnE">
-                                            <rect key="frame" x="258" y="5" width="147.66666666666663" height="20.333333333333332"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My favorite animals" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-EX-AnE">
+                                            <rect key="frame" x="258" y="5" width="148" height="20.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                     <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="7YG-EX-AnE" firstAttribute="top" secondItem="ZUg-2f-UEd" secondAttribute="top" constant="5" id="6cN-NI-ZLL"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7YG-EX-AnE" secondAttribute="trailing" constant="8" id="YbM-cW-nd5"/>
+                                        <constraint firstAttribute="trailing" secondItem="7YG-EX-AnE" secondAttribute="trailing" constant="8" id="YbM-cW-nd5"/>
                                         <constraint firstItem="7YG-EX-AnE" firstAttribute="leading" secondItem="ZUg-2f-UEd" secondAttribute="leading" constant="258" id="s6O-Z6-sqe"/>
                                         <constraint firstAttribute="bottom" secondItem="7YG-EX-AnE" secondAttribute="bottom" constant="5.6666666666666679" id="sJq-LJ-E49"/>
                                     </constraints>

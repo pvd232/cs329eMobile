@@ -7,6 +7,10 @@
 //
 
 import UIKit
+
+var globalVar = 0
+
+
 class AnimalTableViewCell : UITableViewCell {
     @IBOutlet weak var animalImageView: UIImageView!
     @IBOutlet weak var animalNameLabel: UILabel!
@@ -61,7 +65,12 @@ class AnimalTableViewController: UITableViewController {
             
             return cell
         }
-
     }
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        globalVar = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
 

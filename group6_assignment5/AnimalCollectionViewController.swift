@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+
+
+
 class GalleryItem {
     
     private var _image: String
@@ -29,12 +33,15 @@ class GalleryItem {
     }
 }
 
-class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class AnimalCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var AnimalCollectionView: UICollectionView!
     
     var animalPictures = [GalleryItem]()
-    
+    var tuataraPictures = [GalleryItem]()
+    var giraffePictures = [GalleryItem]()
+    var greenlandSharkPictures = [GalleryItem]()
+    var polarBearPictures = [GalleryItem]()
     /* String identifier used to dynamically load cells into collection */
     let identifier = "AnimalCollectionCell"
     private let sectionInsets = UIEdgeInsets(top: 0.0, left: 50.0, bottom: 0.0, right: 50.0)
@@ -43,7 +50,6 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
         accessPhotoPlist()
         super.viewDidLoad()
      }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      // Dispose of any resources that can be recreated.
@@ -57,27 +63,60 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
             for (key, value) in input {
                 animalPictures.append(GalleryItem(image: key, caption: value)) }
         }
+        tuataraPictures = Array(animalPictures[0...2])
+        polarBearPictures = Array(animalPictures[3...5])
+        greenlandSharkPictures = Array(animalPictures[6...8])
+        giraffePictures = Array(animalPictures[9...11])
     }
         
     // MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
        return 1
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return animalPictures.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! AnimalPhotoCollectionViewCell
         
-        let animalPhoto = animalPictures[indexPath.row]
+        if globalVar < 2 {
+            
+        let animalPhoto = greenlandSharkPictures[indexPath.row]
         cell.animalImageView?.image = UIImage(named: animalPhoto.image)
         cell.captionLabel.text = animalPhoto.caption
-        
         return cell
+            
+        }
+            
+        else if globalVar < 4 {
+            
+            let animalPhoto = giraffePictures[indexPath.row]
+                   cell.animalImageView?.image = UIImage(named: animalPhoto.image)
+                   cell.captionLabel.text = animalPhoto.caption
+                   return cell
+        }
+            
+       else if globalVar < 6 {
+                  
+                  let animalPhoto = tuataraPictures[indexPath.row]
+                         cell.animalImageView?.image = UIImage(named: animalPhoto.image)
+                         cell.captionLabel.text = animalPhoto.caption
+                         return cell
+              }
+        
+        else  {
+                   
+                   let animalPhoto = polarBearPictures[indexPath.row]
+                          cell.animalImageView?.image = UIImage(named: animalPhoto.image)
+                          cell.captionLabel.text = animalPhoto.caption
+                          return cell
+               }
+        
     }
+    
 
     func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
@@ -88,8 +127,7 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
       case UICollectionView.elementKindSectionHeader:
         // 3
         guard
-          let headerView = collectionView.dequeueReusableSupplementaryView( ofKind: kind,
-                                                                            withReuseIdentifier: "HeaderView",
+          let headerView = collectionView.dequeueReusableSupplementaryView( ofKind: kind, withReuseIdentifier: "HeaderView",
                                                                             for: indexPath) as? CollectionHeaderView
           else {
             fatalError("Invalid view type") }
@@ -115,12 +153,22 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
       //2
-        let itemsPerRow: CGFloat = 1
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let image = UIImage(named: animalPictures[indexPath.row].image)
+        let cellWidth = image!.size.width
+        let cellHeight = image!.size.height
+        
+        let paddingSpace = sectionInsets.left * (2)
         let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-      
-        return CGSize(width: 100, height: 100)
+        
+        var widthPerItem:CGFloat
+        if availableWidth > cellWidth {
+            widthPerItem = cellWidth
+        } else {
+            widthPerItem = availableWidth
+        }
+        
+        let aspectRatio = cellHeight/cellWidth
+        return CGSize(width: widthPerItem, height: (widthPerItem*aspectRatio))
     }
     
     //3
@@ -137,4 +185,5 @@ class AnimalCollectionViewController: UIViewController, UICollectionViewDataSour
       return sectionInsets.left
     }
 }
+
 
