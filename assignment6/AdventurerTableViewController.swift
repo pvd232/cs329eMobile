@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let imageNames:[String] = ["Sceptile", "Blaziken", "Swampert", "Pikachu"]
+
 class AdventurerTableViewController: UITableViewController {
     
     @IBOutlet var adventurerTableView: UITableView!
@@ -72,6 +74,7 @@ class AdventurerTableViewController: UITableViewController {
         cell.adventurerCurrentHP?.text = String(currentHP)
         let totalHP: Int = adventurer.value(forKey: "totalHitPoints") as! Int
         cell.adventurerTotalHP?.text = String(totalHP)
+        cell.adventurerPortrait.image = UIImage(named: adventurer.value(forKey: "portrait") as! String)
         
         return cell
     }
@@ -123,18 +126,25 @@ class AdventurerTableViewController: UITableViewController {
         let recruitmentVC = segue.source as! RecruitmentViewController
         let newAdventurerName = recruitmentVC.name
         let newAdventurerProfession = recruitmentVC.profession
+        let newAdventurerPortrait = recruitmentVC.imageName
         let newAdventurerLevel = 1
         let newAdventurerAttack = Float.random(in: 1.0 ... 5.0)
         let newAdventurerCurrentHP = Int.random(in: 80 ... 150)
         let newAdventurerTotalHP = newAdventurerCurrentHP
-           
-        addAdventurer(name: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP)
+        
+        print(newAdventurerPortrait)
+        
+        addAdventurer(name: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait)
         tableView.reloadData()
          
     }
     
-    func addAdventurer(name: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int) {
+    @IBAction func endQuest(segue:UIStoryboardSegue) {
 
+    }
+    
+    func addAdventurer(name: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String) {
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return }
         
@@ -150,6 +160,8 @@ class AdventurerTableViewController: UITableViewController {
         adventurer.setValue(attackModifier, forKey: "attackModifier")
         adventurer.setValue(currentHitPoints, forKey: "currentHitPoints")
         adventurer.setValue(totalHitPoints, forKey: "totalHitPoints")
+        
+        adventurer.setValue(portrait, forKey: "portrait")
         
         do {
             try managedContext.save()

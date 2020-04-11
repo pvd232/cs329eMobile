@@ -16,7 +16,8 @@
 		1D427D0824392FAD003704E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D427D0624392FAD003704E5 /* LaunchScreen.storyboard */; };
 		1D427D102439327C003704E5 /* AdventurerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */; };
 		1D427D12243932D7003704E5 /* AdventurerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */; };
-		1D427D142439378F003704E5 /* Adventurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D427D132439378F003704E5 /* Adventurer.swift */; };
+		33152046244157E100EA9FA8 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33152045244157E100EA9FA8 /* QuestViewController.swift */; };
+		331520482441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331520472441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		1D427D0924392FAD003704E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventurerTableViewCell.swift; sourceTree = "<group>"; };
 		1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventurerTableViewController.swift; sourceTree = "<group>"; };
-		1D427D132439378F003704E5 /* Adventurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventurer.swift; sourceTree = "<group>"; };
+		33152045244157E100EA9FA8 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
+		331520472441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppearanceCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +69,11 @@
 				1D427CF824392FA8003704E5 /* AppDelegate.swift */,
 				1D427CFA24392FA8003704E5 /* SceneDelegate.swift */,
 				1D427CFE24392FA8003704E5 /* Main.storyboard */,
-				1D427D132439378F003704E5 /* Adventurer.swift */,
 				1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */,
-				11EE2C8B243ADACB00F06AD9 /* RecruitmentViewController.swift */,
 				1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */,
+				11EE2C8B243ADACB00F06AD9 /* RecruitmentViewController.swift */,
+				331520472441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift */,
+				33152045244157E100EA9FA8 /* QuestViewController.swift */,
 				1D427D0424392FAD003704E5 /* Assets.xcassets */,
 				1D427D0624392FAD003704E5 /* LaunchScreen.storyboard */,
 				1D427D0924392FAD003704E5 /* Info.plist */,
@@ -151,10 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D427D102439327C003704E5 /* AdventurerTableViewCell.swift in Sources */,
-				1D427D142439378F003704E5 /* Adventurer.swift in Sources */,
 				1D427D12243932D7003704E5 /* AdventurerTableViewController.swift in Sources */,
+				331520482441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift in Sources */,
 				11EE2C8C243ADACB00F06AD9 /* RecruitmentViewController.swift in Sources */,
 				1D427CF924392FA8003704E5 /* AppDelegate.swift in Sources */,
+				33152046244157E100EA9FA8 /* QuestViewController.swift in Sources */,
 				1D427CFB24392FA8003704E5 /* SceneDelegate.swift in Sources */,
 				1D427D0324392FA8003704E5 /* assignment6.xcdatamodeld in Sources */,
 			);
