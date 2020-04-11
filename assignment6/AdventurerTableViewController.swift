@@ -160,7 +160,6 @@ class AdventurerTableViewController: UITableViewController {
         adventurer.setValue(attackModifier, forKey: "attackModifier")
         adventurer.setValue(currentHitPoints, forKey: "currentHitPoints")
         adventurer.setValue(totalHitPoints, forKey: "totalHitPoints")
-        
         adventurer.setValue(portrait, forKey: "portrait")
         
         do {
