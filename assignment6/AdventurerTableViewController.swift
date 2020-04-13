@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-let imageNames:[String] = ["Sceptile", "Blaziken", "Swampert", "Pikachu"]
+
 
 class AdventurerTableViewController: UITableViewController {
     
@@ -139,8 +139,6 @@ class AdventurerTableViewController: UITableViewController {
         let newAdventurerAttack = Float.random(in: 1.0 ... 5.0)
         let newAdventurerCurrentHP = Int.random(in: 80 ... 150)
         let newAdventurerTotalHP = newAdventurerCurrentHP
-        
-        print(newAdventurerPortrait)
         
         addAdventurer(name: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait)
         tableView.reloadData()

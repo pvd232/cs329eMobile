@@ -10,6 +10,7 @@ import UIKit
 
 class RecruitmentViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let imageNames:[String] = ["Sceptile", "Blaziken", "Swampert", "Pikachu"]
     @IBOutlet weak var adventurerName: UITextField!
     @IBOutlet weak var adventurerProfession: UITextField!
     @IBOutlet weak var saveButton: UIButton!
