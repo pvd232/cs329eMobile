@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BcR-b2-WFr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BcR-b2-WFr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -130,7 +130,7 @@
                                     <outlet property="adventurerPortrait" destination="R3h-Xw-tgs" id="GtG-ht-wPe"/>
                                     <outlet property="adventurerProfession" destination="yF0-3g-hh8" id="5V7-zz-5vU"/>
                                     <outlet property="adventurerTotalHP" destination="G4V-M7-zIh" id="jEJ-R4-obg"/>
-                                    <segue destination="qZX-Ks-t81" kind="presentation" id="fCj-qV-nyU"/>
+                                    <segue destination="qZX-Ks-t81" kind="presentation" identifier="Quest" id="fCj-qV-nyU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -299,7 +299,7 @@
         <!--Quest-->
         <scene sceneID="5tO-yh-TQv">
             <objects>
-                <viewController id="qZX-Ks-t81" userLabel="Quest" customClass="AVPlayerViewController" sceneMemberID="viewController">
+                <viewController id="qZX-Ks-t81" userLabel="Quest" customClass="QuestViewController" customModule="assignment6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wA5-E8-Ymk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,7 +319,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attack:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjr-7b-Em8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Attack:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjr-7b-Em8">
                                 <rect key="frame" x="197" y="182" width="57" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -331,8 +331,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attack Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Om-dv-6IO">
-                                <rect key="frame" x="262" y="182" width="101" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Attack Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Om-dv-6IO">
+                                <rect key="frame" x="262" y="182" width="132" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -386,6 +386,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-EA-9Ob">
+                                <rect key="frame" x="293" y="142" width="101" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -428,6 +435,16 @@
                         <viewLayoutGuide key="safeArea" id="Zch-ko-ava"/>
                     </view>
                     <navigationItem key="navigationItem" id="UEY-zG-7QC"/>
+                    <connections>
+                        <outlet property="adventurerAttack" destination="7Om-dv-6IO" id="vQ8-RK-67g"/>
+                        <outlet property="adventurerCurrentHP" destination="wm8-4i-tll" id="Nug-RJ-Db7"/>
+                        <outlet property="adventurerLevel" destination="s44-7F-pLN" id="WkJ-Jb-7G1"/>
+                        <outlet property="adventurerNameLabel" destination="NUC-zb-uRc" id="PNC-e5-G3U"/>
+                        <outlet property="adventurerPortrait" destination="OVg-D9-zLI" id="UYF-Wk-3cU"/>
+                        <outlet property="adventurerProfession" destination="1rc-EA-9Ob" id="oXa-3E-OpL"/>
+                        <outlet property="adventurerTotalHP" destination="XXo-Xv-RH6" id="mCq-g2-cKz"/>
+                        <outlet property="questTextView" destination="P4m-s9-Cia" id="Zmq-rQ-dw3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6b-Qn-Rpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="xL3-12-EQa" userLabel="Exit" sceneMemberID="exit"/>

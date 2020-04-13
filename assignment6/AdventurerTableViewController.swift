@@ -19,18 +19,18 @@ class AdventurerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-     
-    /*override func viewWillAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Person")
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Adventurer")
         var fetchedResults:[NSManagedObject]? = nil
         
         do {
@@ -42,16 +42,16 @@ class AdventurerTableViewController: UITableViewController {
         }
         
         if let results = fetchedResults {
-            people = results
+            adventurers = results
         }
-
-    }*/
-
+        
+    }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return adventurers.count
     }
@@ -60,9 +60,9 @@ class AdventurerTableViewController: UITableViewController {
         
         let adventurer = adventurers[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "adventurerCell", for: indexPath) as? AdventurerTableViewCell
-        else {
-             fatalError("The dequeued cell is not an instance of AdventurerTableViewCell.")
-         }
+            else {
+                fatalError("The dequeued cell is not an instance of AdventurerTableViewCell.")
+        }
         
         cell.adventurerName?.text = adventurer.value(forKeyPath: "name") as? String
         cell.adventurerProfession?.text = adventurer.value(forKeyPath: "profession") as? String
@@ -79,50 +79,58 @@ class AdventurerTableViewController: UITableViewController {
         return cell
     }
     
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            // Delete from core data
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                       return }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let adventurerToRemove = adventurers[indexPath.row]
+            managedContext.delete(adventurerToRemove)
+            appDelegate.saveContext()
+            
+            // Delete from tableview
+            adventurers.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            tableView.reloadData()
+        }
     }
-    */
-
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    
     // MARK: - Navigation
     @IBAction func cancel(segue:UIStoryboardSegue) {
-
+        
     }
-
+    
     @IBAction func save(segue:UIStoryboardSegue) {
-
+        
         let recruitmentVC = segue.source as! RecruitmentViewController
         let newAdventurerName = recruitmentVC.name
         let newAdventurerProfession = recruitmentVC.profession
@@ -136,11 +144,11 @@ class AdventurerTableViewController: UITableViewController {
         
         addAdventurer(name: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait)
         tableView.reloadData()
-         
+        
     }
     
     @IBAction func endQuest(segue:UIStoryboardSegue) {
-
+        
     }
     
     func addAdventurer(name: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String) {
@@ -169,13 +177,29 @@ class AdventurerTableViewController: UITableViewController {
             print("Could not add adventurer. \(error), \(error.userInfo)")}
     }
     
-/*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "Quest") {
+            guard let questViewController = segue.destination as?
+                QuestViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedAdventurerCell = sender as? AdventurerTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedAdventurerCell) else {
+                fatalError("The selected cell is not being displated by the table")
+            }
+            
+            let selectedAdventurer = adventurers[indexPath.row]
+            questViewController.adventurer = selectedAdventurer
+            // Get the new view controller using segue.destination.
+            // Pass the selected object to the new view controller.
+        }
+        
     }
-    */
-
-
+    
 }
