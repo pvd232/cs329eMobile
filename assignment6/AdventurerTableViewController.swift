@@ -30,37 +30,37 @@ class AdventurerTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-                var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Adventurer")
-                var fetchedResults:[NSManagedObject]? = nil
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Adventurer")
+        var fetchedResults:[NSManagedObject]? = nil
         // uncomment this block if you want to delete all instances of the adventurers and or enemies for development purposes
-//        var fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Adventurer")
-//        var deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//        do {
-//            try managedContext.execute(deleteRequest)
-//        } catch var error as NSError {
-//            NSLog("Unable to fetch \(error), \(error.userInfo)")
-//        }
-//        fetchRequest = NSFetchRequest(entityName: "Enemy")
-//        deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//        do {
-//            try managedContext.execute(deleteRequest)
-//        } catch let error1 as NSError {
-//            NSLog("Unable to fetch \(error1), \(error1.userInfo)")
-//        }
+        //        var fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Adventurer")
+        //        var deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        //
+        //        do {
+        //            try managedContext.execute(deleteRequest)
+        //        } catch var error as NSError {
+        //            NSLog("Unable to fetch \(error), \(error.userInfo)")
+        //        }
+        //        fetchRequest = NSFetchRequest(entityName: "Enemy")
+        //        deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        //
+        //        do {
+        //            try managedContext.execute(deleteRequest)
+        //        } catch let error1 as NSError {
+        //            NSLog("Unable to fetch \(error1), \(error1.userInfo)")
+        //        }
         
-                do {
-                    try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-                } catch {
-                    let nserror = error as NSError
-                    NSLog("Unable to fetch \(nserror), \(nserror.userInfo)")
-                    abort()
-                }
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unable to fetch \(nserror), \(nserror.userInfo)")
+            abort()
+        }
         
-                if let results = fetchedResults {
-                    adventurers = results
-                }
+        if let results = fetchedResults {
+            adventurers = results
+        }
         
         
     }
@@ -170,23 +170,24 @@ class AdventurerTableViewController: UITableViewController {
         let newEnemyDefense = Float.random(in: 1.0 ... 5.0)
         let newEnemyCurrentHP = Int.random(in: 80 ... 150)
         let newEnemyTotalHP = newEnemyCurrentHP
+        let newEnemyLevel = 1
         
-        addAdventurer(adventurerName: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait, defense: newAdventurerDefence, speed: newAdventurerSpeed, enemiesDefeated: newEnemiesDefeated, enemyName: newEnemyName, enemyAttack: newEnemyAttack, enemyDefense: newEnemyDefense, enemyCurrentHitPoints: newEnemyCurrentHP, enemyTotalHitPoints: newEnemyTotalHP)
+        addAdventurer(adventurerName: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait, defense: newAdventurerDefence, speed: newAdventurerSpeed, enemiesDefeated: newEnemiesDefeated, enemyName: newEnemyName, enemyAttack: newEnemyAttack, enemyDefense: newEnemyDefense, enemyCurrentHitPoints: newEnemyCurrentHP, enemyTotalHitPoints: newEnemyTotalHP, enemyLevel: newEnemyLevel)
         //             addAdventurer(adventurerName: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait, defense: newAdventurerDefence, speed: newAdventurerSpeed, enemiesDefeated: newEnemiesDefeated, enemyName: newEnemyName)
         tableView.reloadData()
         
     }
     
     @IBAction func endQuest(segue:UIStoryboardSegue) {
-//        let recruitmentVC = segue.source as! QuestViewController
+        //        let recruitmentVC = segue.source as! QuestViewController
         tableView.reloadData()
         let questVC = segue.source as! QuestViewController
         let timer = questVC.timer
         timer.invalidate()
-    
+        
     }
     
-    func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String, enemyAttack: Float, enemyDefense: Float, enemyCurrentHitPoints: Int, enemyTotalHitPoints: Int) {
+    func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String, enemyAttack: Float, enemyDefense: Float, enemyCurrentHitPoints: Int, enemyTotalHitPoints: Int, enemyLevel: Int) {
         
         //
         //    func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String) {

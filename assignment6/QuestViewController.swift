@@ -94,6 +94,7 @@ class QuestViewController: UIViewController {
         let newEnemyCurrentHP = Int.random(in: 80 ... 150)
         let newEnemyTotalHP = newEnemyCurrentHP
         let adventurerName = adventurer!.value(forKeyPath: "name") as? String
+        let newEnemyLevel = 1
         
         newEnemy.setValue(newEnemyName, forKey: "name")
         newEnemy.setValue(newEnemyAttack, forKey: "attackModifier")
@@ -101,6 +102,7 @@ class QuestViewController: UIViewController {
         newEnemy.setValue(newEnemyCurrentHP, forKey: "currentHitPoints")
         newEnemy.setValue(newEnemyTotalHP, forKey: "totalHitPoints")
         newEnemy.setValue(adventurerName, forKey: "adventurerName")
+        newEnemy.setValue(newEnemyLevel, forKey: "level")
         enemy = newEnemy
         appDelegate.saveContext()
         
@@ -146,6 +148,7 @@ class QuestViewController: UIViewController {
         let enemyDefense: Float = enemy!.value(forKey: "defenseModifier") as! Float
         let enemyCurrentHP: Int = enemy!.value(forKey: "currentHitPoints") as! Int
         let enemyTotalHP: Int = enemy!.value(forKey: "totalHitPoints") as! Int
+        let enemyLevel: Int = enemy!.value(forKey: "level") as! Int
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return os_log("error accessing AppDelegate")
@@ -194,7 +197,7 @@ class QuestViewController: UIViewController {
                     
                 
                     adventurer?.setValue(totalHP, forKey: "currentHitPoints")
-                    adventurerCurrentHP.text = String(currentHP)
+                    adventurerCurrentHP.text = String(totalHP)
                     appDelegate.saveContext()
                     questTextView.text += "\(name) has replenished hit points!\n"
                     scrollTextViewToBottom(textView: questTextView)
@@ -205,7 +208,6 @@ class QuestViewController: UIViewController {
                     let newEnemyName = enemy!.value(forKeyPath: "name") as! String
                     adventurer?.setValue(newEnemyName, forKey: "enemyName")
                     adventurer?.setValue(newEnemiesDefeated, forKey: "enemiesDefeated")
-                    adventurer?.setValue(totalHP, forKey: "currentHitPoints")
                     appDelegate.saveContext()
                     questTextView.text += "\(name) has defeated \(enemyName) and now must defeat \(newEnemyName).\n"
                     scrollTextViewToBottom(textView: questTextView)
@@ -232,12 +234,16 @@ class QuestViewController: UIViewController {
                 
                 // adventurer died
                 if (newAdventurerCurrentHP < 0) {
+                    let newEnemyLevel = enemyLevel + 1
                     questTextView.text += "\(name)'s has suffered a fatal blow.\n"
+                    scrollTextViewToBottom(textView: questTextView)
+                    questTextView.text += "\(enemyName) mocks \(name) and levels up to level \(newEnemyLevel).\n"
                     scrollTextViewToBottom(textView: questTextView)
                     questTextView.text += "\(name)'s currentHP is below 0. Game over."
                     scrollTextViewToBottom(textView: questTextView)
                     adventurer?.setValue(totalHP, forKey: "currentHitPoints")
                     adventurerCurrentHP.text = String(0)
+                    enemy?.setValue(newEnemyLevel, forKey: "level")
                     appDelegate.saveContext()
                     timer.invalidate()
                     //                    return
