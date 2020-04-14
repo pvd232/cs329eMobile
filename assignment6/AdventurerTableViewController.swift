@@ -19,7 +19,7 @@ class AdventurerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -178,7 +178,12 @@ class AdventurerTableViewController: UITableViewController {
     }
     
     @IBAction func endQuest(segue:UIStoryboardSegue) {
-        
+//        let recruitmentVC = segue.source as! QuestViewController
+        tableView.reloadData()
+        let questVC = segue.source as! QuestViewController
+        let timer = questVC.timer
+        timer.invalidate()
+    
     }
     
     func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String, enemyAttack: Float, enemyDefense: Float, enemyCurrentHitPoints: Int, enemyTotalHitPoints: Int) {

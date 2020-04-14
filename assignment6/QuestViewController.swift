@@ -28,6 +28,7 @@ class QuestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    var timer = Timer()
     override func viewWillAppear(_ animated: Bool) {
         if let adventurer = adventurer {
             
@@ -105,6 +106,13 @@ class QuestViewController: UIViewController {
         
     }
     
+    func scrollTextViewToBottom(textView: UITextView) {
+        if textView.text.count > 0 {
+            let location = textView.text.count - 1
+            let bottom = NSMakeRange(location, 1)
+            textView.scrollRangeToVisible(bottom)
+        }
+    }
     //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
     //            let managedContext = appDelegate.persistentContainer.viewContext
     //            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Enemy")
@@ -145,6 +153,11 @@ class QuestViewController: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let gameNum = Float.random(in: 0.0 ... 4.0)
+//
+//        let textViewLength = questTextView.text.split(separator: "\n")
+//        if (textViewLength.count > 10) {
+//            questTextView.text = ""
+//        }
         
         if (gameNum < 2)
             // if gameNum is less than two then the adventurer attacks
@@ -154,81 +167,119 @@ class QuestViewController: UIViewController {
             let damage = damageNum * attack * defenseMultiplier
             let roundedDamage = Int(damage)
             let newEnemyCurrentHP = enemyCurrentHP - roundedDamage
+            
+            // if enemy dies
             if (newEnemyCurrentHP < 0) {
                 let newEnemiesDefeated = enemiesDefeated + 1
                 adventurer?.setValue(newEnemiesDefeated, forKey: "enemiesDefeated")
                 appDelegate.saveContext()
-                let enemiesDefeatedCounter = enemiesDefeated/2
-                if (newEnemiesDefeated == 5) {
+                
+                // if adventurer has killed 5 enemies
+                if (newEnemiesDefeated >= 5) {
                     questTextView.text += "\(name) has defeated \(enemyName) and won the game!\n"
+                    scrollTextViewToBottom(textView: questTextView)
+                    adventurer?.setValue(totalHP, forKey: "currentHitPoints")
+                    adventurer?.setValue(0, forKey: "enemiesDefeated")
+                    appDelegate.saveContext()
+                    timer.invalidate()
+                    //                    return
                 }
-                if (enemiesDefeatedCounter == 1) {
+                else {
+                    // level up if you kill an enemy
                     let newLevel = level + 1
+                    adventurerLevel.text = String(newLevel)
+                    adventurer?.setValue(newLevel, forKey: "level")
                     questTextView.text += "\(name) has defeated \(enemyName) and leveled up to level \(newLevel)!\n"
-                    sleep(1)
+                    scrollTextViewToBottom(textView: questTextView)
+                    
+                
                     adventurer?.setValue(totalHP, forKey: "currentHitPoints")
                     adventurerCurrentHP.text = String(currentHP)
                     appDelegate.saveContext()
                     questTextView.text += "\(name) has replenished hit points!\n"
+                    scrollTextViewToBottom(textView: questTextView)
+                    managedContext.delete(enemy!)
+                    
+                    addEnemy()
+                    
+                    let newEnemyName = enemy!.value(forKeyPath: "name") as! String
+                    adventurer?.setValue(newEnemyName, forKey: "enemyName")
+                    adventurer?.setValue(newEnemiesDefeated, forKey: "enemiesDefeated")
+                    adventurer?.setValue(totalHP, forKey: "currentHitPoints")
+                    appDelegate.saveContext()
+                    questTextView.text += "\(name) has defeated \(enemyName) and now must defeat \(newEnemyName).\n"
+                    scrollTextViewToBottom(textView: questTextView)
                 }
-                managedContext.delete(enemy!)
-                addEnemy()
-                let newEnemyName = enemy!.value(forKeyPath: "name") as! String
-                adventurer?.setValue(newEnemyName, forKey: "enemyName")
-                adventurer?.setValue(newEnemiesDefeated, forKey: "enemiesDefeated")
-                appDelegate.saveContext()
-                questTextView.text += "\(name) has defeated \(enemyName) and now must defeat \(newEnemyName)\n"
             }
-            enemy?.setValue(newEnemyCurrentHP, forKey: "currentHitPoints")
-            appDelegate.saveContext()
-            questTextView.text += "\(name) has attacked \(enemyName) with a fatal blow. \(enemyName) loses \(roundedDamage) hit points!\n"
-            
+            else {
+                enemy?.setValue(newEnemyCurrentHP, forKey: "currentHitPoints")
+                appDelegate.saveContext()
+                questTextView.text += "\(name) has attacked \(enemyName) with a powerful blow. \(enemyName) loses \(roundedDamage) hit points!\n"
+                scrollTextViewToBottom(textView: questTextView)
+            }
         }
-            
+            // enemy attacks adventurer
         else {
             let scwifty = Int.random(in: 0 ... 10)
+            
+            // if adventurer speed less than this random integer then you adventurer gets attacked by enemy
             if (speed < scwifty) {
                 let damageNum = Float.random(in: 18.0 ... 24.0)
                 let defenseMultiplier = defense/10
                 let damage = damageNum * enemyAttack * defenseMultiplier
                 let roundedDamage = Int(damage)
                 let newAdventurerCurrentHP = currentHP - roundedDamage
+                
+                // adventurer died
                 if (newAdventurerCurrentHP < 0) {
                     questTextView.text += "\(name)'s has suffered a fatal blow.\n"
-                    sleep(1)
+                    scrollTextViewToBottom(textView: questTextView)
                     questTextView.text += "\(name)'s currentHP is below 0. Game over."
+                    scrollTextViewToBottom(textView: questTextView)
+                    adventurer?.setValue(totalHP, forKey: "currentHitPoints")
+                    adventurerCurrentHP.text = String(0)
+                    appDelegate.saveContext()
+                    timer.invalidate()
+                    //                    return
                     
                 }
-                adventurer?.setValue(newAdventurerCurrentHP, forKey: "currentHitPoints")
-                questTextView.text += "\(enemyName) has attacked \(name) with a fatal blow. \(name) loses \(roundedDamage) hit points!\n"
-                adventurerCurrentHP.text = String(newAdventurerCurrentHP)
-                appDelegate.saveContext()
+                else {
+                    adventurer?.setValue(newAdventurerCurrentHP, forKey: "currentHitPoints")
+                    questTextView.text += "\(enemyName) has attacked \(name) with a powerful blow. \(name) loses \(roundedDamage) hit points!\n"
+                    scrollTextViewToBottom(textView: questTextView)
+                    adventurerCurrentHP.text = String(newAdventurerCurrentHP)
+                    appDelegate.saveContext()
+                }
             }
+                // adventurer escapes attack
             else{
                 questTextView.text += "\(name)'s speed is unmatched. \(name) dodged the attack!\n"
+                scrollTextViewToBottom(textView: questTextView)
             }
             
         }
-        
     }
-    override func viewDidAppear(_ animated: Bool) {
-        let enemyName = adventurer!.value(forKeyPath: "enemyName") as! String
-        questTextView.text += "Beginning Quest...\n"
-        sleep(1)
-        questTextView.text += "You will travel through the Old Forest to reach Minas Tirith.\n"
-        sleep(1)
-        questTextView.text += "You have encountered a wild \(enemyName).\n"
-        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(gameplay), userInfo: nil, repeats: true)
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
+override func viewDidAppear(_ animated: Bool) {
+    let enemyName = adventurer!.value(forKeyPath: "enemyName") as! String
+    questTextView.text += "Beginning Quest...\n"
+    scrollTextViewToBottom(textView: questTextView)
+    questTextView.text += "You will travel through the Old Forest to reach Minas Tirith.\n"
+    scrollTextViewToBottom(textView: questTextView)
+    questTextView.text += "You have encountered a wild \(enemyName).\n"
+    scrollTextViewToBottom(textView: questTextView)
+    timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(gameplay), userInfo: nil, repeats: true)
 }
+}
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 
 

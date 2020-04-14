@@ -16,6 +16,7 @@
 		1D427D0824392FAD003704E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D427D0624392FAD003704E5 /* LaunchScreen.storyboard */; };
 		1D427D102439327C003704E5 /* AdventurerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */; };
 		1D427D12243932D7003704E5 /* AdventurerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */; };
+		1D5A5EB92445705E009579BD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A5EB82445705E009579BD /* README.txt */; };
 		33152046244157E100EA9FA8 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33152045244157E100EA9FA8 /* QuestViewController.swift */; };
 		331520482441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331520472441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		1D427D0924392FAD003704E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventurerTableViewCell.swift; sourceTree = "<group>"; };
 		1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventurerTableViewController.swift; sourceTree = "<group>"; };
+		1D5A5EB82445705E009579BD /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		33152045244157E100EA9FA8 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
 		331520472441633300EA9FA8 /* SelectAppearanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppearanceCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 				1D427CF824392FA8003704E5 /* AppDelegate.swift */,
 				1D427CFA24392FA8003704E5 /* SceneDelegate.swift */,
 				1D427CFE24392FA8003704E5 /* Main.storyboard */,
+				1D5A5EB82445705E009579BD /* README.txt */,
 				1D427D0F2439327C003704E5 /* AdventurerTableViewCell.swift */,
 				1D427D11243932D7003704E5 /* AdventurerTableViewController.swift */,
 				11EE2C8B243ADACB00F06AD9 /* RecruitmentViewController.swift */,
@@ -142,6 +145,7 @@
 			files = (
 				1D427D0824392FAD003704E5 /* LaunchScreen.storyboard in Resources */,
 				1D427D0524392FAD003704E5 /* Assets.xcassets in Resources */,
+				1D5A5EB92445705E009579BD /* README.txt in Resources */,
 				1D427D0024392FA8003704E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
