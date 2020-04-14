@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BcR-b2-WFr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BcR-b2-WFr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -339,24 +339,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P4m-s9-Cia">
-                                <rect key="frame" x="20" y="310" width="374" height="205"/>
+                                <rect key="frame" x="20" y="310" width="374" height="427"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRw-BK-7cE">
-                                <rect key="frame" x="247" y="535" width="147" height="34"/>
-                                <color key="backgroundColor" red="0.5144173782" green="0.5144173782" blue="0.5144173782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.5144173782" green="0.5144173782" blue="0.5144173782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="End Quest">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xL3-12-EQa" kind="unwind" unwindAction="endQuestWithSegue:" id="26e-tX-Gnf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-fK-3sd">
                                 <rect key="frame" x="20" y="278" width="90" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -403,10 +391,49 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defense:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4u1-XX-RUr">
+                                <rect key="frame" x="186" y="253" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMQ-O9-yGC">
+                                <rect key="frame" x="186" y="281" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFg-Sj-YcJ">
+                                <rect key="frame" x="268" y="253" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btK-gG-HmN">
+                                <rect key="frame" x="268" y="282" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRw-BK-7cE">
+                                <rect key="frame" x="247" y="760" width="147" height="34"/>
+                                <color key="backgroundColor" red="0.5144173782" green="0.5144173782" blue="0.5144173782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.5144173782" green="0.5144173782" blue="0.5144173782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="End Quest">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xL3-12-EQa" kind="unwind" unwindAction="endQuestWithSegue:" id="26e-tX-Gnf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Zch-ko-ava" firstAttribute="bottom" secondItem="P4m-s9-Cia" secondAttribute="bottom" constant="293" id="1tF-Or-nd2"/>
                             <constraint firstItem="1rc-EA-9Ob" firstAttribute="leading" secondItem="OVg-D9-zLI" secondAttribute="trailing" constant="40" id="1vh-U9-rab"/>
                             <constraint firstItem="d0C-eg-adY" firstAttribute="top" secondItem="s44-7F-pLN" secondAttribute="bottom" constant="61.5" id="4mX-x5-eOH"/>
                             <constraint firstItem="Zch-ko-ava" firstAttribute="trailing" secondItem="MRw-BK-7cE" secondAttribute="trailing" constant="20" id="6pz-Td-aAD"/>
@@ -415,13 +442,13 @@
                             <constraint firstItem="tXG-NG-mDv" firstAttribute="top" secondItem="Fjr-7b-Em8" secondAttribute="bottom" constant="20" id="FO9-tP-ccF"/>
                             <constraint firstItem="d0C-eg-adY" firstAttribute="leading" secondItem="Fjr-7b-Em8" secondAttribute="trailing" constant="20" id="Ifa-zl-kxU"/>
                             <constraint firstItem="Zch-ko-ava" firstAttribute="trailing" secondItem="p5i-fK-3sd" secondAttribute="trailing" constant="304" id="Mr7-tK-Tx4"/>
-                            <constraint firstItem="Zch-ko-ava" firstAttribute="bottom" secondItem="MRw-BK-7cE" secondAttribute="bottom" constant="239" id="NP9-Bh-jVS"/>
-                            <constraint firstItem="MRw-BK-7cE" firstAttribute="top" secondItem="P4m-s9-Cia" secondAttribute="bottom" constant="20" id="Pxg-Cf-eLR"/>
+                            <constraint firstItem="Zch-ko-ava" firstAttribute="bottom" secondItem="MRw-BK-7cE" secondAttribute="bottom" constant="14" id="NDE-2o-Wwq"/>
                             <constraint firstItem="Zch-ko-ava" firstAttribute="trailing" secondItem="P4m-s9-Cia" secondAttribute="trailing" constant="20" id="RB9-01-hRY"/>
                             <constraint firstItem="OVg-D9-zLI" firstAttribute="leading" secondItem="Zch-ko-ava" secondAttribute="leading" constant="20" id="Ue7-Y6-zfG"/>
                             <constraint firstItem="Zch-ko-ava" firstAttribute="trailing" secondItem="s44-7F-pLN" secondAttribute="trailing" constant="20" id="Vpv-WM-1W8"/>
                             <constraint firstItem="Fjr-7b-Em8" firstAttribute="leading" secondItem="OVg-D9-zLI" secondAttribute="trailing" constant="40" id="XaT-S4-650"/>
                             <constraint firstItem="P4m-s9-Cia" firstAttribute="leading" secondItem="Zch-ko-ava" secondAttribute="leading" constant="20" id="aW5-vT-lc6"/>
+                            <constraint firstItem="Zch-ko-ava" firstAttribute="bottom" secondItem="P4m-s9-Cia" secondAttribute="bottom" constant="71" id="c7j-to-ZPG"/>
                             <constraint firstItem="OVg-D9-zLI" firstAttribute="top" secondItem="Zch-ko-ava" secondAttribute="top" constant="85" id="cPa-Ke-bLN"/>
                             <constraint firstItem="Fjr-7b-Em8" firstAttribute="top" secondItem="1rc-EA-9Ob" secondAttribute="bottom" constant="20" id="cbw-h4-St0"/>
                             <constraint firstItem="p5i-fK-3sd" firstAttribute="leading" secondItem="Zch-ko-ava" secondAttribute="leading" constant="20" id="hEn-r9-y0a"/>
@@ -430,6 +457,7 @@
                             <constraint firstItem="P4m-s9-Cia" firstAttribute="top" secondItem="p5i-fK-3sd" secondAttribute="bottom" constant="8" id="mGV-Ei-dmn"/>
                             <constraint firstItem="s44-7F-pLN" firstAttribute="top" secondItem="Zch-ko-ava" secondAttribute="top" constant="85" id="mkE-ji-DIJ"/>
                             <constraint firstItem="MRw-BK-7cE" firstAttribute="leading" secondItem="Zch-ko-ava" secondAttribute="leading" constant="247" id="qko-tn-BeK"/>
+                            <constraint firstItem="MRw-BK-7cE" firstAttribute="top" secondItem="P4m-s9-Cia" secondAttribute="bottom" constant="23" id="qzL-DH-g6q"/>
                             <constraint firstItem="tXG-NG-mDv" firstAttribute="leading" secondItem="OVg-D9-zLI" secondAttribute="trailing" constant="40" id="t73-ec-jce"/>
                             <constraint firstItem="1rc-EA-9Ob" firstAttribute="top" secondItem="NUC-zb-uRc" secondAttribute="bottom" constant="20" id="uhQ-C3-UtN"/>
                         </constraints>
@@ -439,10 +467,12 @@
                     <connections>
                         <outlet property="adventurerAttack" destination="7Om-dv-6IO" id="vQ8-RK-67g"/>
                         <outlet property="adventurerCurrentHP" destination="wm8-4i-tll" id="Nug-RJ-Db7"/>
+                        <outlet property="adventurerDefenseLabel" destination="SFg-Sj-YcJ" id="pMH-aF-N3R"/>
                         <outlet property="adventurerLevel" destination="s44-7F-pLN" id="WkJ-Jb-7G1"/>
                         <outlet property="adventurerNameLabel" destination="NUC-zb-uRc" id="PNC-e5-G3U"/>
                         <outlet property="adventurerPortrait" destination="OVg-D9-zLI" id="UYF-Wk-3cU"/>
                         <outlet property="adventurerProfession" destination="1rc-EA-9Ob" id="oXa-3E-OpL"/>
+                        <outlet property="adventurerSpeedLabel" destination="btK-gG-HmN" id="HcP-gK-AhS"/>
                         <outlet property="adventurerTotalHP" destination="XXo-Xv-RH6" id="mCq-g2-cKz"/>
                         <outlet property="questTextView" destination="P4m-s9-Cia" id="Zmq-rQ-dw3"/>
                     </connections>

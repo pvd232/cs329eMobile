@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import os
 
 
 class AdventurerTableViewController: UITableViewController {
@@ -30,20 +30,38 @@ class AdventurerTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Adventurer")
-        var fetchedResults:[NSManagedObject]? = nil
+                var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Adventurer")
+                var fetchedResults:[NSManagedObject]? = nil
+        // uncomment this block if you want to delete all instances of the adventurers and or enemies for development purposes
+//        var fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Adventurer")
+//        var deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try managedContext.execute(deleteRequest)
+//        } catch var error as NSError {
+//            NSLog("Unable to fetch \(error), \(error.userInfo)")
+//        }
+//        fetchRequest = NSFetchRequest(entityName: "Enemy")
+//        deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try managedContext.execute(deleteRequest)
+//        } catch let error1 as NSError {
+//            NSLog("Unable to fetch \(error1), \(error1.userInfo)")
+//        }
         
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            let nserror = error as NSError
-            NSLog("Unable to fetch \(nserror), \(nserror.userInfo)")
-            abort()
-        }
+                do {
+                    try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+                } catch {
+                    let nserror = error as NSError
+                    NSLog("Unable to fetch \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
         
-        if let results = fetchedResults {
-            adventurers = results
-        }
+                if let results = fetchedResults {
+                    adventurers = results
+                }
+        
         
     }
     
@@ -95,7 +113,9 @@ class AdventurerTableViewController: UITableViewController {
             
             // Delete from core data
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                       return }
+                return os_log("error accessing AppDelegate")
+                
+            }
             let managedContext = appDelegate.persistentContainer.viewContext
             let adventurerToRemove = adventurers[indexPath.row]
             managedContext.delete(adventurerToRemove)
@@ -131,6 +151,9 @@ class AdventurerTableViewController: UITableViewController {
     
     @IBAction func save(segue:UIStoryboardSegue) {
         
+        let enemyNames :[String] = ["Charzard", "Snorlax", "Ditto", "Lucario", "Gyrados"]
+        let newEnemyName = enemyNames[Int.random(in: 0 ... 4)]
+        
         let recruitmentVC = segue.source as! RecruitmentViewController
         let newAdventurerName = recruitmentVC.name
         let newAdventurerProfession = recruitmentVC.profession
@@ -138,9 +161,18 @@ class AdventurerTableViewController: UITableViewController {
         let newAdventurerLevel = 1
         let newAdventurerAttack = Float.random(in: 1.0 ... 5.0)
         let newAdventurerCurrentHP = Int.random(in: 80 ... 150)
+        let newAdventurerDefence = Float.random(in: 1.0 ... 5.0)
         let newAdventurerTotalHP = newAdventurerCurrentHP
+        let newAdventurerSpeed = Int.random(in: 1 ... 10)
+        let newEnemiesDefeated = 0
         
-        addAdventurer(name: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait)
+        let newEnemyAttack = Float.random(in: 1.0 ... 5.0)
+        let newEnemyDefense = Float.random(in: 1.0 ... 5.0)
+        let newEnemyCurrentHP = Int.random(in: 80 ... 150)
+        let newEnemyTotalHP = newEnemyCurrentHP
+        
+        addAdventurer(adventurerName: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait, defense: newAdventurerDefence, speed: newAdventurerSpeed, enemiesDefeated: newEnemiesDefeated, enemyName: newEnemyName, enemyAttack: newEnemyAttack, enemyDefense: newEnemyDefense, enemyCurrentHitPoints: newEnemyCurrentHP, enemyTotalHitPoints: newEnemyTotalHP)
+        //             addAdventurer(adventurerName: newAdventurerName, profession: newAdventurerProfession, level: newAdventurerLevel, attackModifier: newAdventurerAttack, currentHitPoints: newAdventurerCurrentHP, totalHitPoints: newAdventurerTotalHP, portrait: newAdventurerPortrait, defense: newAdventurerDefence, speed: newAdventurerSpeed, enemiesDefeated: newEnemiesDefeated, enemyName: newEnemyName)
         tableView.reloadData()
         
     }
@@ -149,24 +181,47 @@ class AdventurerTableViewController: UITableViewController {
         
     }
     
-    func addAdventurer(name: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String) {
+    func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String, enemyAttack: Float, enemyDefense: Float, enemyCurrentHitPoints: Int, enemyTotalHitPoints: Int) {
         
+        //
+        //    func addAdventurer(adventurerName: String, profession: String, level: Int, attackModifier: Float, currentHitPoints: Int, totalHitPoints: Int, portrait: String, defense: Float, speed: Int, enemiesDefeated: Int, enemyName: String) {
+        //
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return }
+            return os_log("error accessing AppDelegate")
+        }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Adventurer", in: managedContext)!
+        let adventurerEntity = NSEntityDescription.entity(forEntityName: "Adventurer", in: managedContext)!
         
-        let adventurer = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        adventurer.setValue(name, forKey: "name")
+        
+        let adventurer = NSManagedObject(entity: adventurerEntity, insertInto: managedContext)
+        
+        
+        adventurer.setValue(adventurerName, forKey: "name")
         adventurer.setValue(profession, forKey: "profession")
         adventurer.setValue(level, forKey: "level")
         adventurer.setValue(attackModifier, forKey: "attackModifier")
         adventurer.setValue(currentHitPoints, forKey: "currentHitPoints")
         adventurer.setValue(totalHitPoints, forKey: "totalHitPoints")
         adventurer.setValue(portrait, forKey: "portrait")
+        adventurer.setValue(defense, forKey: "defenseModifier")
+        adventurer.setValue(speed, forKey: "speed")
+        adventurer.setValue(enemiesDefeated, forKey: "enemiesDefeated")
+        adventurer.setValue(enemyName, forKey: "enemyName")
+        
+        let enemyEntity = NSEntityDescription.entity(forEntityName: "Enemy", in: managedContext)!
+        
+        let enemy = NSManagedObject(entity: enemyEntity, insertInto: managedContext)
+        
+        enemy.setValue(enemyName, forKey: "name")
+        enemy.setValue(enemyAttack, forKey: "attackModifier")
+        enemy.setValue(enemyDefense, forKey: "defenseModifier")
+        enemy.setValue(enemyCurrentHitPoints, forKey: "currentHitPoints")
+        enemy.setValue(enemyTotalHitPoints, forKey: "totalHitPoints")
+        enemy.setValue(adventurerName, forKey: "adventurerName")
+        
         
         do {
             try managedContext.save()
@@ -181,7 +236,7 @@ class AdventurerTableViewController: UITableViewController {
         if (segue.identifier == "Quest") {
             guard let questViewController = segue.destination as?
                 QuestViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
+                    fatalError("Unexpected destination: \(segue.destination)")
             }
             
             guard let selectedAdventurerCell = sender as? AdventurerTableViewCell else {

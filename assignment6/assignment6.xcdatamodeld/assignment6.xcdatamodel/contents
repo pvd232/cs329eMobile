@@ -3,19 +3,28 @@
     <entity name="Adventurer" representedClassName="Adventurer" syncable="YES" codeGenerationType="class">
         <attribute name="attackModifier" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="currentHitPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="defenseModifier" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="enemiesDefeated" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="enemyName" optional="YES" attributeType="String"/>
         <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="portrait" optional="YES" attributeType="String"/>
         <attribute name="profession" optional="YES" attributeType="String"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalHitPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="enemy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Enemy" inverseName="adventurer" inverseEntity="Enemy"/>
     </entity>
     <entity name="Enemy" representedClassName="Enemy" syncable="YES" codeGenerationType="class">
+        <attribute name="adventurerName" optional="YES" attributeType="String"/>
+        <attribute name="attackModifier" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="currentHitPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="defenseModifier" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="totalHitPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="adventurer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Adventurer" inverseName="enemy" inverseEntity="Adventurer"/>
     </entity>
     <elements>
-        <element name="Adventurer" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Enemy" positionX="-63" positionY="36" width="128" height="88"/>
+        <element name="Adventurer" positionX="-63" positionY="-18" width="128" height="223"/>
+        <element name="Enemy" positionX="-63" positionY="36" width="128" height="148"/>
     </elements>
 </model>
